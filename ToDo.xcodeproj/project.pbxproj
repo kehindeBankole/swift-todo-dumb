@@ -11,6 +11,8 @@
 		4514435A2A9871670002B503 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451443592A9871670002B503 /* ContentView.swift */; };
 		4514435C2A9871680002B503 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4514435B2A9871680002B503 /* Assets.xcassets */; };
 		4514435F2A9871680002B503 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4514435E2A9871680002B503 /* Preview Assets.xcassets */; };
+		451443682A9873360002B503 /* ApplicationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451443672A9873360002B503 /* ApplicationData.swift */; };
+		451443732A9881DB0002B503 /* Mukta-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 451443722A9881DB0002B503 /* Mukta-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,9 @@
 		451443592A9871670002B503 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4514435B2A9871680002B503 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4514435E2A9871680002B503 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		451443672A9873360002B503 /* ApplicationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationData.swift; sourceTree = "<group>"; };
+		4514436D2A987FAA0002B503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		451443722A9881DB0002B503 /* Mukta-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +56,13 @@
 		451443562A9871670002B503 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				4514436D2A987FAA0002B503 /* Info.plist */,
 				451443572A9871670002B503 /* ToDoApp.swift */,
+				451443722A9881DB0002B503 /* Mukta-Medium.ttf */,
 				451443592A9871670002B503 /* ContentView.swift */,
 				4514435B2A9871680002B503 /* Assets.xcassets */,
 				4514435D2A9871680002B503 /* Preview Content */,
+				451443672A9873360002B503 /* ApplicationData.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451443732A9881DB0002B503 /* Mukta-Medium.ttf in Resources */,
 				4514435F2A9871680002B503 /* Preview Assets.xcassets in Resources */,
 				4514435C2A9871680002B503 /* Assets.xcassets in Resources */,
 			);
@@ -137,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451443682A9873360002B503 /* ApplicationData.swift in Sources */,
 				4514435A2A9871670002B503 /* ContentView.swift in Sources */,
 				451443582A9871670002B503 /* ToDoApp.swift in Sources */,
 			);
@@ -270,6 +280,7 @@
 				DEVELOPMENT_TEAM = 57PCP37963;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToDo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +310,7 @@
 				DEVELOPMENT_TEAM = 57PCP37963;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToDo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

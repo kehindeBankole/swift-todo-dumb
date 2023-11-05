@@ -41,14 +41,15 @@ class ApplicationData: ObservableObject {
             do{
                 // 2
                 let savedContacts = try JSONDecoder().decode([TodoViewModel].self, from: savedData)
-              todoData = savedContacts
-                print(savedContacts)
+                todoData = savedContacts
+                
+                print(todoData)
             } catch {
                 todoData = []
                 // Failed to convert Data to Contact
             }
         }else{
-        todoData = [
+            todoData = [
                 TodoViewModel(item: Todo(title: "first todo", isDone: false)),
                 TodoViewModel(item: Todo(title: "second todo", isDone: false)),
             ]

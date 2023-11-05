@@ -33,13 +33,7 @@ struct ContentView: View {
     @Environment(\.colorScheme) var mode
     @State var input:String = ""
     
-    func addTodo(){
-        todoData.todoData.append(
-            TodoViewModel(item: Todo(title: input, isDone: false))
-        )
-        input = ""
-        
-        print(todoData.todoData)
+    func saveTodo(){
         do {
             // 1
             let encodedData = try JSONEncoder().encode(todoData.todoData)
@@ -50,10 +44,18 @@ struct ContentView: View {
             userDefaults.set(encodedData, forKey: "contacts")
             
         } catch {
+            print("error adding data")
             // Failed to encode Contact to Data
         }
         
-        
+    }
+    
+    func addTodo(){
+        todoData.todoData.append(
+            TodoViewModel(item: Todo(title: input, isDone: false))
+        )
+        input = ""
+        saveTodo()
         
     }
     
@@ -72,7 +74,26 @@ struct ContentView: View {
                     HStack{
                         Text(todoData.todoData[index].title).strikethrough(todoData.todoData[index].isDone, color: todoData.todoData[index].isDone ? .red : .black).font(.custom("Mukta-Medium", size: 22)).foregroundColor(mode == .dark ? .white : .black)
                         Spacer()
-                        Toggle("",isOn: $todoData.todoData[index].isDone).labelsHidden()
+                        Toggle("",isOn: $todoData.todoData[index].isDone).onChange(of: todoData.todoData[index].isDone) { newValue in
+                            
+                            
+                            do {
+                                // 1
+                                let encodedData = try JSONEncoder().encode(todoData.todoData)
+                                
+                                
+                                let userDefaults = UserDefaults.standard
+                                // 2
+                                userDefaults.set(encodedData, forKey: "contacts")
+                                
+                            } catch {
+                                print("error adding data")
+                                // Failed to encode Contact to Data
+                            }
+                            
+                            
+                            
+                        }
                     }
                 }
             }
@@ -94,7 +115,7 @@ struct ContentView: View {
             }
             
         }
-                         
+                        
         )
         
         

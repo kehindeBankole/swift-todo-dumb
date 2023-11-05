@@ -38,10 +38,30 @@ struct ContentView: View {
             TodoViewModel(item: Todo(title: input, isDone: false))
         )
         input = ""
+        
+        print(todoData.todoData)
+        do {
+            // 1
+            let encodedData = try JSONEncoder().encode(todoData.todoData)
+            
+            
+            let userDefaults = UserDefaults.standard
+            // 2
+            userDefaults.set(encodedData, forKey: "contacts")
+            
+        } catch {
+            // Failed to encode Contact to Data
+        }
+        
+        
+        
     }
     
     var body: some View {
         @State var isButtonDisabled = input.count == 0
+        
+        
+        
         ScrollView{
             VStack {
                 
@@ -59,7 +79,7 @@ struct ContentView: View {
             .padding()
             Spacer()
             
-        }  .safeAreaInset(edge: .bottom, content: {
+        }.safeAreaInset(edge: .bottom, content: {
             HStack{
                 Button(action: {
                     addTodo()
@@ -72,9 +92,9 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }.disabled(isButtonDisabled).buttonStyle(BlueButton())
             }
-     
+            
         }
-    
+                         
         )
         
         

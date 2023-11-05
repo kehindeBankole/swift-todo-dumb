@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct Todo : Hashable {
+struct Todo : Hashable, Codable {
     var title:String
     var isDone:Bool
     
 }
 
-struct TodoViewModel: Identifiable , Hashable {
+struct TodoViewModel: Identifiable , Hashable  , Codable{
     var item : Todo
     var id = UUID()
     var title : String {
@@ -33,9 +33,26 @@ class ApplicationData: ObservableObject {
     @Published var todoData:[TodoViewModel]
     
     init(){
+        
+        let userDefaults = UserDefaults.standard
+        // 1
+        if let savedData = userDefaults.object(forKey: "contacts") as? Data {
+            
+            do{
+                // 2
+                let savedContacts = try JSONDecoder().decode([TodoViewModel].self, from: savedData)
+              todoData = savedContacts
+                print(savedContacts)
+            } catch {
+                todoData = []
+                // Failed to convert Data to Contact
+            }
+        }else{
         todoData = [
-            TodoViewModel(item: Todo(title: "first todo", isDone: false)),
-        TodoViewModel(item: Todo(title: "second todo", isDone: false)),
-        ]
+                TodoViewModel(item: Todo(title: "first todo", isDone: false)),
+                TodoViewModel(item: Todo(title: "second todo", isDone: false)),
+            ]
+            
+        }
     }
 }
